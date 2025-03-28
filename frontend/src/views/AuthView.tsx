@@ -3,7 +3,7 @@ import { Mail, Lock, User, X } from "lucide-react";
 import { userLogin, userSignup } from "../store/slices/userSlice";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
 
-const AuthScreen = () => {
+const AuthView = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -23,6 +23,19 @@ const AuthScreen = () => {
       dispatch(userSignup({ email, password, username }));
     }
   };
+
+  // const onClickSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  //   e.preventDefault();
+  //   dispatch(userLogin({ email, password }))
+  //     .unwrap()
+  //     .then((response) => {
+  //       if (response.token) {
+  //         localStorage.setItem("token", response.token);
+  //         window.location.reload(); // Force re-render to trigger AuthRedirect
+  //       }
+  //     })
+  //     .catch((err) => console.error("Login failed:", err));
+  // };
 
   useEffect(() => {
     if (user.error) {
@@ -151,4 +164,4 @@ const AuthScreen = () => {
   );
 };
 
-export default AuthScreen;
+export default AuthView;

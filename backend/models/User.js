@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+ const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema(
   {
@@ -21,8 +21,8 @@ const UserSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ["client", "admin"],
-      default: "admin",
+      enum: ["staff advisor", "organizer", "staff admin"],
+      default: "organizer",
     },
     createdAt: {
       type: Date,

@@ -16,7 +16,7 @@ authRouter.post("/login", login);
 authRouter.put(
   "/change-role",
   authenticationUtil,
-  authorizationUtil(["admin"]),
+  authorizationUtil(["staff admin"]),
   changeRole
 );
 authRouter.put("/change-password", authenticationUtil, changePassword);

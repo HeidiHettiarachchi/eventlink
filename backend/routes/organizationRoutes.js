@@ -10,10 +10,10 @@ const {
 
 const organizationRouter = express.Router();
 
-organizationRouter.post("/createOrganization", authenticationUtil,authorizationUtil(["admin"]),createOrganization);
+organizationRouter.post("/createOrganization", authenticationUtil,authorizationUtil(["staff admin"]),createOrganization);
 organizationRouter.get("/getOrganizations", getAllOrganizations);
 organizationRouter.get("/getOrganization/:id", getOrganizationById);
-organizationRouter.put("/updateOrganization/:id", authenticationUtil,authorizationUtil(["admin"]), updateOrganization);
-organizationRouter.delete("/deleteOrganization/:id", authenticationUtil,authorizationUtil(["admin"]), deleteOrganization);
+organizationRouter.put("/updateOrganization/:id", authenticationUtil,authorizationUtil(["staff admin"]), updateOrganization);
+organizationRouter.delete("/deleteOrganization/:id", authenticationUtil,authorizationUtil(["staff admin"]), deleteOrganization);
 
 module.exports = organizationRouter;

@@ -134,7 +134,7 @@ const ManageUsers = () => {
                       <td className="p-4">{user.email}</td>
                       <td className="p-4">
                         <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                          user.role === "admin" 
+                          user.role === "staff admin" 
                             ? "bg-purple-100 text-purple-800" 
                             : "bg-blue-100 text-blue-800"
                         }`}>

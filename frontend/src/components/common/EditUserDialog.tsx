@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Button from '../Button/Button';
 import { IUser } from '../../types/IResponse';
 
-type UserRole = "admin" | "client";
+type UserRole = "staff admin" | "organizer" | "staff advisor";
 
 interface EditUserDialogProps {
   isDialogOpen: boolean;
@@ -158,13 +158,13 @@ const EditUserDialog: FC<EditUserDialogProps> = ({
   if (!isDialogOpen || !editingUser) return null;
 
   // Ensure the role is one of the allowed literals
-  const safeRole: UserRole = (editingUser.role as string === "admin" || editingUser.role as string === "client") 
+  const safeRole: UserRole = (editingUser.role as string === "staff admin" || editingUser.role as string === "organizer" || editingUser.role as string === "staff advisor") 
     ? (editingUser.role as UserRole) 
-    : "client"; // Default to "client" if role is invalid
+    : "organizer"; // Default to "client" if role is invalid
 
   const handleRoleChange = (newRole: string): void => {
     // Only allow valid roles
-    if (newRole === "admin" || newRole === "client") {
+    if (newRole === "staff admin" || newRole === "organizer" || newRole === "staff advisor") {
       setEditingUser({ ...editingUser, role: newRole as UserRole });
     }
   };
@@ -224,8 +224,9 @@ const EditUserDialog: FC<EditUserDialogProps> = ({
                           onChange={(e) => handleRoleChange(e.target.value)}
                           className="p-3 pr-10 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none"
                         >
-                          <option value="admin">Admin</option>
-                          <option value="client">Client</option>
+                          <option value="staff admin">Staff Admin</option>
+                          <option value="organizer">Organizer</option>
+                          <option value="staff advisor">Staff Advisor</option>
                         </select>
               
                    <div className="absolute top-0 right-0 px-3 py-3 text-gray-500 pointer-events-none">

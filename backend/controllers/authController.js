@@ -27,7 +27,7 @@ const register = async (req, res) => {
     const token = jwt.sign(
       { id: user._id, role: user.role },
       process.env.JWT_SECRET,
-      { expiresIn: "1h" }
+      { expiresIn: "0.25h" }
     );
     res.json({
       username: user.username,
@@ -90,7 +90,7 @@ const changeRole = async (req, res) => {
     if (!validator.isEmail(email)) {
       throw Error("Please provide a valid email");
     }
-    if (role != "user" && role != "admin") {
+    if (role != "user" && role != "staff admin" && role != "staff advisor" && role != "organizer") {
       throw Error("Please provide a valid role");
     }
 

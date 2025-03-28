@@ -3,9 +3,13 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "./hooks/reduxHooks";
 import { getUserDetails } from "./store/slices/userSlice";
 
+//pages
 import AdminView from "./views/AdminView";
 import ClientView from "./views/ClientView";
+import HomeView from "./views/HomeView";
 import AuthView from "./views/AuthView";
+import StaffView from "./views/StaffView";
+
 import { AuthRedirect, LoadingSpinner } from "./components";
 
 function App() {
@@ -24,11 +28,13 @@ function App() {
     <>
       <LoadingSpinner isLoading={user.isLoading} />
       <Routes>
-        <Route path="/" Component={AuthView} />
+        <Route path="/" Component={HomeView} />
         <Route path="/admin" Component={AdminView} />
-        <Route path="/client" Component={ClientView} />
+        <Route path="/organizer" Component={ClientView} />
+        <Route path="/login" Component={AuthView} />
+        <Route path="/staff" Component={StaffView}/>
       </Routes>
-      <AuthRedirect />
+     
     </>
   );
 }

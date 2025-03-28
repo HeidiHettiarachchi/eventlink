@@ -1,5 +1,5 @@
 const ClientView = () => {
-    return (<>Client</>);
+    return (<>Welcome Event Organizer!</>);
 }
 
 export default ClientView;

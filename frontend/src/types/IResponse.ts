@@ -9,7 +9,7 @@ interface IUser {
   _id: string;
   username: string;
   email: string;
-  role: "admin" | "client";
+  role: "staff admin" | "staff advisor" | "organizer";
 }
 
 interface ISignupResponse {
