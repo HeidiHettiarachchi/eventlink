@@ -27,6 +27,10 @@ const NavBar: React.FC = () => {
           <li><a href="/clubs" className="hover:text-[#FC8239] transition">Clubs & Societies</a></li>
         </ul>
 
+        
+        
+
+
         <button
           onClick={handleLoginClick}
           className="bg-[#100944] hover:bg-[#FC8239] text-white px-5 py-2 rounded-md transition duration-300 ease-in-out transform hover:scale-105"
