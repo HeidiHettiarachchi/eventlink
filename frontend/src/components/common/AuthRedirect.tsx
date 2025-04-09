@@ -19,6 +19,7 @@ const AuthRedirect = () => {
       } else if (decodedToken?.role === "staff advisor") {
         navigate("/staff");
       }
+     
 
     } else {
       navigate("/");

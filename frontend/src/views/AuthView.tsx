@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Mail, Lock, User, X } from "lucide-react";
 import { userLogin, userSignup } from "../store/slices/userSlice";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
+//import { IDecodedToken } from "../types";
 
 const AuthView = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -12,17 +13,34 @@ const AuthView = () => {
 
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.user);
+//uncomment this one
+  // const onClickSubmit = (
+  //   e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  // ) => {
+  //   e.preventDefault();
+  //   if (isLogin) {
+  //     dispatch(userLogin({ email, password }));
+  //   } else {
+  //     dispatch(userSignup({ email, password, username }));
+  //   }
+  // };
 
-  const onClickSubmit = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
+  const onClickSubmit = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    if (isLogin) {
-      dispatch(userLogin({ email, password }));
-    } else {
-      dispatch(userSignup({ email, password, username }));
+    try {
+      const action = isLogin ? userLogin({ email, password }) : userSignup({ email, password, username });
+      const response = await dispatch(action).unwrap();
+  
+      if (response.token) {
+        localStorage.setItem("token", response.token);
+        window.location.reload(); // Refresh to trigger AuthRedirect
+      }
+    } catch (err) {
+      console.error("Authentication failed:", err);
     }
   };
+
+
 
   // const onClickSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
   //   e.preventDefault();
