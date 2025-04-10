@@ -11,7 +11,7 @@ const NavBar: React.FC = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-4 bg-white/60 backdrop-blur-md shadow-md">
+    <nav className="fixed  top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-4 backdrop-blur-md shadow-md">
       {/* Logo */}
       <div className="flex items-center">
         <a href="/" aria-label="Home">
@@ -20,11 +20,11 @@ const NavBar: React.FC = () => {
       </div>
 
       {/* Menu and Login */}
-      <div className="flex items-center gap-8">
+      <div className="flex items-center gap-8 font-poppins">
         <ul className="flex gap-6 text-lg font-medium text-[#100944]">
-          <li><a href="#about" className="hover:text-[#FC8239] transition">About Us</a></li>
-          <li><a href="/events" className="hover:text-[#FC8239] transition">Events</a></li>
-          <li><a href="/clubs" className="hover:text-[#FC8239] transition">Clubs & Societies</a></li>
+          <li><a href="#about" className="hover:text-[#ffffff] transition">About Us</a></li>
+          <li><a href="/events" className="hover:text-[#ffffff] transition">Events</a></li>
+          <li><a href="/clubs" className="hover:text-[#ffffff] transition">Clubs & Societies</a></li>
         </ul>
 
         
@@ -33,7 +33,7 @@ const NavBar: React.FC = () => {
 
         <button
           onClick={handleLoginClick}
-          className="bg-[#100944] hover:bg-[#FC8239] text-white px-5 py-2 rounded-md transition duration-300 ease-in-out transform hover:scale-105"
+          className="bg-[#100944] hover:bg-[#FC8239] cursor-pointer text-white px-5 py-2 rounded-md transition duration-300 ease-in-out transform hover:scale-105"
         >
           Login
         </button>
