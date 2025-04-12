@@ -2,12 +2,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../components/Navbar/NavBar";
+import AboutUs from "../components/About/AboutUs";
 import "../App.css";
 import '@fontsource/poppins/700.css'; // Optional: bold weights
 
 const HomeView: React.FC = () => {
 
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleLoginClick = () => {
     navigate("/events");
@@ -59,33 +60,34 @@ const HomeView: React.FC = () => {
 
 
 
-        <p className="font-poppins text-xl text-amber-200 mb-8 max-w-2xl">
+        <p className="font-poppins text-xl text-amber-300 mb-8 max-w-2xl">
           Welcome fellows!
           Link with us to explore events and clubs happening around you.
           Organize your events and manage your clubs with ease.
         </p>
 
-{/* 
-        <button className="mt-2 bg-blue-600 hover:bg-[#FC8239] cursor-pointer text-white px-5 py-2 rounded-md transition duration-300 ease-in-out transform hover:scale-105">
-          GET STARTED
-        </button> */}
-
-        
 
 
 
-<button 
-onClick={handleLoginClick}
-className="bg-blur font-poppins text-black-800 hover:text-white-900 transform-gpu cursor-pointer rounded-3xl border border-white-500 bg-gradient-to-r px-8 py-4 font-bold text-white backdrop-blur-md transition-transform hover:-translate-y-1 hover:border-0 hover:from-amber-500 hover:to-amber-300 hover:text-blue-950 hover:shadow-lg">GET STARTED !</button>
 
+        <button
+          onClick={handleLoginClick}
+          className="bg-blur font-poppins text-black-800 hover:text-white-900 transform-gpu cursor-pointer rounded-3xl border border-white-500 bg-gradient-to-r px-8 py-4 font-bold text-white backdrop-blur-md transition-transform hover:-translate-y-1 hover:border-0 hover:from-amber-500 hover:to-amber-300 hover:text-blue-950 hover:shadow-lg">GET STARTED !</button>
 
 
 
 
       </div>
 
+<section id="AboutUs">
+      <AboutUs />
+      </section>
+
 
     </>
+
+
+
   );
 
 
