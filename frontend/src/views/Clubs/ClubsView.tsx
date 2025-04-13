@@ -1,6 +1,7 @@
 import React from "react";
 import ClubsNavbar from "./ClubsNavbar";
 import "./clubs.css"
+import Footer from "../../components/Footer/Footer";
 
 
 
@@ -50,6 +51,9 @@ const ClubsView: React.FC = () => {
 
 
         </div>
+
+        <Footer />
+
         </div>
 
     );

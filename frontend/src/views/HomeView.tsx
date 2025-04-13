@@ -5,6 +5,7 @@ import NavBar from "../components/Navbar/NavBar";
 import AboutUs from "../components/About/AboutUs";
 import "../App.css";
 import '@fontsource/poppins/700.css'; // Optional: bold weights
+import Footer from "../components/Footer/Footer";
 
 const HomeView: React.FC = () => {
 
@@ -82,6 +83,9 @@ const HomeView: React.FC = () => {
 <section id="AboutUs">
       <AboutUs />
       </section>
+
+      <Footer />
+
 
 
     </>

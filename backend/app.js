@@ -3,7 +3,6 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const eventRegRoutes = require("./routes/eventRegRoute");
 
 dotenv.config();
 const {
@@ -11,6 +10,8 @@ const {
   userRoutes,
   organizationRoutes,
   crewRoutes,
+  eventRegRoute,
+
 } = require("./routes");
 
 const logger = require("./utils/logger");
@@ -38,7 +39,6 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/organizations",organizationRoutes);
 app.use("/api/crews",crewRoutes)
-app.use("/api/events", eventRegRoutes);
-
+app.use("/api/eventsAdmin", eventRegRoute);
 
 module.exports = app;

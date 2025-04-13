@@ -1,6 +1,7 @@
 import React from "react";
 import EventNavbar from "./EventNavbar";
 import "./EventView.css";
+import Footer from "../../components/Footer/Footer";
 
 
 const EventView: React.FC = () => {
@@ -44,6 +45,8 @@ const EventView: React.FC = () => {
                 <h1 className="animate-bounce font-poppins mb-6 flex  space-x-1 rounded px-4 py-2 text-7xl font-bold tracking-wide text-white" >Events </h1>
 
             </div>
+
+            <Footer />
         </div>
 
 

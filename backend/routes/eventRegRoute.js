@@ -1,32 +1,28 @@
 const express = require("express");
-
+const { authenticationUtil } = require("../utils");
 const {
-    getEventReg,
-    //getEventRegListings,
-    getEventRegs,
     createEvent,
-    updateEventReg,
-    deleteEventReg
+    getEvents,
+    updateEventStatus,
+    updateEvent,
+    deleteEvent,
 } = require("../controllers/eventController");
 
-const router = express.Router();
+const eventRegRouter = express.Router();
 
-// Get ALL forms 
-router.get("/", getEventRegs);
+// Middleware to authenticate the user
+eventRegRouter.post("/createEvent", authenticationUtil, createEvent);
+eventRegRouter.get("/getEvents", authenticationUtil, getEvents);        
+eventRegRouter.put("/updateEventStatus/:id", authenticationUtil, updateEventStatus);
+eventRegRouter.put("/updateEvent/:id", authenticationUtil, updateEvent);
+eventRegRouter.delete("/deleteEvent/:id", authenticationUtil, deleteEvent);
 
-// Get a specific form by ID
-router.get("/:id", getEventReg);  
 
-// Get user-specific forms
-//router.get("/getUser", getEventRegListings);
+// Add event
+eventRegRouter.post("/addEvent", authenticationUtil, createEvent);  
 
-// Create a new form
-router.post("/", createEvent);
+//Update and remove event
+eventRegRouter.put("/updateEvent/:id", authenticationUtil, updateEvent);
+eventRegRouter.delete("/removeEvent/:id", authenticationUtil, deleteEvent);
 
-// Delete a form (✅ FIXED: Added `/` before `:id`)
-router.delete("/:id", deleteEventReg);  
-
-// Update a form (✅ FIXED: Added `/` before `:id`)
-router.patch("/:id", updateEventReg);
-
-module.exports = router;
+module.exports = eventRegRouter;
