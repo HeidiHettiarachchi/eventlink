@@ -4,7 +4,14 @@ import SideBarOrg from '../../components/SideBar/SideBarOrg';
 const Profile = () => {
  
     return (
-        <SideBarOrg />
+       <>
+                <div className="profile z-1">
+
+       <SideBarOrg />
+                <h1>Profile Page</h1>
+                {/* Add your profile content here */}
+          </div>
+       </>
     )
 }
 

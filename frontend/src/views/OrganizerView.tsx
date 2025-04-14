@@ -9,6 +9,8 @@ const OrganizerView = () => {
 
 
         </div>
+
+    
     );
 };
 

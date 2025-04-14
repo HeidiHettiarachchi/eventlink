@@ -59,6 +59,21 @@ interface ICrew {
   crewMembers: ICrewMember[]; 
 }
 
+interface IEvent{
+  eventID: string;
+  eventName: string;
+  eventDate: string;
+  eventStartTime: string;
+  eventFinishTime: string;
+  timePeriod: string;
+  eventPresident: string;
+  eventProposal: string;
+  eventForm: string; 
+  eventMode: "Physical" | "Online";
+  eventType: "Hackathon" | "Academic" | "Non-Academic";
+  eventStatus: "Pending" | "Approved" | "Rejected";
+}
+
 
 export type {
   ICrew,
@@ -69,4 +84,5 @@ export type {
   IErrorResponse,
   ISignupResponse,
   IUser,
+  IEvent,
 };

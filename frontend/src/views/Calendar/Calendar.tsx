@@ -4,7 +4,9 @@ import SideBarOrg from '../../components/SideBar/SideBarOrg';
 const Calendar = () => {
  
     return (
-        <SideBarOrg />
+       <>
+       <SideBarOrg />
+       </>
     )
 }
 

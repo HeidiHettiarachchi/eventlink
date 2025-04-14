@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Mail, Lock, User, X } from "lucide-react";
 import { userLogin, userSignup } from "../store/slices/userSlice";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
+import { AuthRedirect } from "../components";
+import { useNavigate } from "react-router-dom";
 //import { IDecodedToken } from "../types";
 
 const AuthView = () => {
@@ -10,6 +12,7 @@ const AuthView = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showError, setShowError] = useState(true);
+  const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.user);
@@ -33,7 +36,25 @@ const AuthView = () => {
   
       if (response.token) {
         localStorage.setItem("token", response.token);
-        window.location.reload(); // Refresh to trigger AuthRedirect
+        if (response.role) {
+
+          // const decodedToken: IDecodedToken = jwtDecode(token);
+          // console.log("Decoded Token:", decodedToken);
+          
+          if (response?.role === "staff admin") {
+            navigate("/admin");
+          } else if (response?.role === "organizer") {
+            navigate("/organizer");
+          } else if (response?.role === "staff advisor") {
+            navigate("/staff");
+          }
+         
+    
+        } else {
+          navigate("/");
+        }
+        // window.location.reload(); // Refresh to trigger AuthRedirect
+        
       }
     } catch (err) {
       console.error("Authentication failed:", err);

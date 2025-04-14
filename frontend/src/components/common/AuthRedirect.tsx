@@ -12,6 +12,7 @@ const AuthRedirect = () => {
   useEffect(() => {
     if (token) {
       const decodedToken: IDecodedToken = jwtDecode(token);
+      console.log("Decoded Token:", decodedToken);
       if (decodedToken?.role === "staff admin") {
         navigate("/admin");
       } else if (decodedToken?.role === "organizer") {
