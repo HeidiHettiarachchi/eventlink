@@ -158,13 +158,13 @@ const EditUserDialog: FC<EditUserDialogProps> = ({
   if (!isDialogOpen || !editingUser) return null;
 
   // Ensure the role is one of the allowed literals
-  const safeRole: UserRole = (editingUser.role as string === "staff admin" || editingUser.role as string === "organizer" || editingUser.role as string === "staff advisor") 
+  const safeRole: UserRole = (editingUser.role as string === "staff admin" || editingUser.role as string === "organizer" || editingUser.role as string === "staff advisor"|| editingUser.role as string === "seller") 
     ? (editingUser.role as UserRole) 
     : "organizer"; // Default to "client" if role is invalid
 
   const handleRoleChange = (newRole: string): void => {
     // Only allow valid roles
-    if (newRole === "staff admin" || newRole === "organizer" || newRole === "staff advisor") {
+    if (newRole === "staff admin" || newRole === "organizer" || newRole === "staff advisor"|| newRole === "seller") {
       setEditingUser({ ...editingUser, role: newRole as UserRole });
     }
   };
@@ -227,6 +227,7 @@ const EditUserDialog: FC<EditUserDialogProps> = ({
                           <option value="staff admin">Staff Admin</option>
                           <option value="organizer">Organizer</option>
                           <option value="staff advisor">Staff Advisor</option>
+                          <option value="seller">Seller</option>
                         </select>
               
                    <div className="absolute top-0 right-0 px-3 py-3 text-gray-500 pointer-events-none">

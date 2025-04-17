@@ -48,6 +48,9 @@ const AuthView = () => {
           } else if (response?.role === "staff advisor") {
             navigate("/staff");
           }
+          else if (response?.role === "seller") {
+            navigate("/seller");
+          }
          
     
         } else {

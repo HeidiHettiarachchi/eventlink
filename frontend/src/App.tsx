@@ -19,6 +19,9 @@ import Committee from "./views/Committee/Committee";
 import Resources from "./views/Resources/Resources";
 import Calendar from "./views/Calendar/Calendar";
 
+//Seller Pages 
+import SellerView from "./views/Seller/Seller";
+
 // components
 import { LoadingSpinner } from "./components";
 import SideBarOrg from "./components/SideBar/SideBarOrg";
@@ -71,6 +74,8 @@ function App() {
           <Route path="/organizer/committee" element={<Committee />} />
           <Route path="/organizer/resources" element={<Resources />} />
           <Route path="/organizer/calendar" element={<Calendar />} />
+
+          <Route path="/seller" element={<SellerView />} />
 
         </Routes>
 
